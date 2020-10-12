@@ -29,3 +29,7 @@
   position: absolute;
   transform: translateY(-145px);
 }
+.react-calendar {
+  border: none !important;
+  box-shadow: 10px 10px 21px -3px rgba(0,0,0,0.34);
+}

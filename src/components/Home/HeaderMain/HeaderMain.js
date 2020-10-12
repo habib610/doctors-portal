@@ -13,7 +13,6 @@ const HeaderMain = () => {
                     <img src={Chair} className="img-fluid w-75" alt=""/>
                 </div>
                </div>
-       
         </main>
     );
 };
