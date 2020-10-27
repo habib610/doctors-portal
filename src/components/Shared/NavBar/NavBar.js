@@ -7,16 +7,16 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item active">
-              <Link className="nav-link mr-5" to="#">Home <span className="sr-only">(current)</span></Link>
+              <Link className="nav-link mr-5" to="/">Home <span className="sr-only">(current)</span></Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link mr-5" to="#">About</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link mr-5" to="#">Dental Services</Link>
+              <Link className="nav-link mr-5" to="/dentalServices">Dental Services</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link mr-5 text-white" to="#">Reviews</Link>
+              <Link className="nav-link mr-5 text-white" to="/appointments">Dashboard</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link mr-5 text-white" to="#">Blog</Link>

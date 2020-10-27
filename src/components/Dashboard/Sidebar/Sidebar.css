@@ -1,0 +1,17 @@
+.nav-active{
+    margin-left: 10px;
+    color: #3204ff !important;
+}
+a.sidebar-link{
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+a:hover{
+    text-decoration: none;
+    color: #3204ff;
+}
+.sidebar{
+    background: linear-gradient(45deg, #19D3AE, #0FCFEC);
+}

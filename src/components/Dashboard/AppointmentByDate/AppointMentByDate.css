@@ -1,0 +1,9 @@
+.appointmentByDate select{
+    background: linear-gradient(45deg,#19D3AE, #0FCFEC);
+    border: none;
+    color: white;
+    padding: 5px 10px;
+}
+.appointmentByDate option{
+    background: tomato;
+}
