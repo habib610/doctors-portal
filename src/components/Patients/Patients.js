@@ -8,7 +8,7 @@ const Patients = () => {
     const [patients, setPatients] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/allPatients')
+        fetch('https://sheltered-stream-26599.herokuapp.com/allPatients')
         .then(res=>res.json())
         .then(data=>setPatients(data))
     },[])

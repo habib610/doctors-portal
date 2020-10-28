@@ -14,6 +14,7 @@ import AppointMents from './components/Dashboard/AppointMents/AppointMents';
 import AddDoctor from './components/Dashboard/AddDoctor/AddDoctor';
 import Patients from './components/Patients/Patients';
 import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
+import NotFound from './components/NotFound/NotFound';
 
 
 export const UserContext = createContext();
@@ -30,25 +31,24 @@ function App() {
           <Route path="/home">
           <Home></Home>
           </Route>
-          <Route path="/patients">
+          <PrivateRoute path="/patients">
           <Patients/>
-          </Route>
+          </PrivateRoute>
           <Route path="/login">
          <Login></Login>
           </Route>
           <Route path="/dentalServices">
           <Appointment></Appointment>
           </Route>
-          <Route path="/addDoctor">
+          <PrivateRoute path="/addDoctor">
           <AddDoctor></AddDoctor>
-          </Route>
+          </PrivateRoute>
+
           <PrivateRoute path="/appointments">
           <AppointMents></AppointMents>
           </PrivateRoute>
-          <Route >
-          </Route>
-          
-          
+          <Route component={NotFound}/>
+
         </Switch>
       </Router>
     </UserContext.Provider>

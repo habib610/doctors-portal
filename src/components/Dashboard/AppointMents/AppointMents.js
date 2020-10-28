@@ -9,7 +9,8 @@ import PatientDashboard from '../PatientDashboard/PatientDashboard';
 
 const AppointMents = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const [patient, setPatient] = useState(false);
+    const [admin, setAdmin] = useState(false);
+    const[userAppointment, setUserAppointment] = useState([])
 
     const [appointments, setAppointments] = useState([]);
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -17,14 +18,11 @@ const AppointMents = () => {
         setSelectedDate(date)
     };
 
-    useEffect(()=>{
-        fetch(`http://localhost:5000/isAdmin?email=${loggedInUser.email}`)
-        .then(res=> res.json())
-        .then(data => setPatient(data))
-    },[])
+
+
 
     useEffect(() => {
-        fetch('http://localhost:5000/appointmentsByDate', {
+        fetch('https://sheltered-stream-26599.herokuapp.com/appointmentsByDate', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ date: selectedDate, email: loggedInUser.email })
@@ -34,8 +32,20 @@ const AppointMents = () => {
     }, [selectedDate])
 
 
+    useEffect(()=>{
+        fetch(`https://sheltered-stream-26599.herokuapp.com/isAdmin?email=${loggedInUser.email}`)
+        .then(res=> res.json())
+        .then(data => setAdmin(data))
+    },[])
 
 
+    useEffect(()=>{
+        fetch(`https://sheltered-stream-26599.herokuapp.com/myAppointment?email=${loggedInUser.email}`)
+        .then(res=> res.json())
+        .then(data => setUserAppointment(data))
+    },[])
+
+console.log(userAppointment);
     return (
         <section className="container-fluid ">
             <div className=" row">
@@ -45,9 +55,7 @@ const AppointMents = () => {
 
 
                 {
-                    patient ? (<div className="col-md-9">
-                        <PatientDashboard></PatientDashboard>
-                    </div>) : (
+                    admin ? (
                         <div className="col-md-9">
                             <div className="row">
                             <div className="col-md-4 mt-5">
@@ -74,6 +82,13 @@ const AppointMents = () => {
                         
                             </div>
                         )
+                    : (<div className="col-md-9">
+                        {
+                          userAppointment.map(details => <PatientDashboard details={details} key={details._id}></PatientDashboard>)  
+
+                        }
+                    </div>) 
+                    
                 }
 
 

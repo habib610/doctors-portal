@@ -23,7 +23,7 @@ const AddDoctor = () => {
         formData.append('name', info.name)
         formData.append('email', info.email)
 
-        fetch('http://localhost:5000/addDoctor', {
+        fetch('https://sheltered-stream-26599.herokuapp.com/addDoctor', {
             method: 'POST',
             body: formData
         })
@@ -31,6 +31,7 @@ const AddDoctor = () => {
             .then(data => {
                 if(data){
                     alert("Doctors Added Successfully")
+                    event.target.reset();
                    
                 }
             })
@@ -39,7 +40,7 @@ const AddDoctor = () => {
             })
 
             event.preventDefault();
-            event.target.reset();
+           
            
     }
     return (
